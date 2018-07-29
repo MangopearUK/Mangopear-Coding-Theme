@@ -124,7 +124,7 @@
 
 			$links_args = array(
 				'post_type'			=> 'resources',
-				'posts_per_page'	=> 12,
+				'posts_per_page'	=> 9,
 				'tax_query'			=> 	array(
 											array(
 												'taxonomy' => 'resource__types',
