@@ -40,13 +40,33 @@
 					<div class="c-resources__links  o-posts  o-posts--title-only">
 						<ul class="o-flex  o-posts__list">
 							<?php while (have_posts()) : the_post(); ?>
-								<li class="o-flex__item  c-useful-link">
+								<li class="o-flex__item  c-useful-link" <?php if (get_field('colour')) { echo 'style="color: ' . get_field('colour') . '"'; } ?>>
 									<article class="o-posts__item  c-useful-link__wrap  has-overlay-link">
 										<div class="o-post">
-											<h3 class="o-post__title"><a href="<?php the_field('url'); ?>" target="_blank" class="o-post__title-link"><?php the_title(); ?></a></h3>
-											<span class="o-post__from"><?php the_field('website_name'); ?></span>
-											<?php if (get_field('read_time')) : ?><span class="o-post__read-time"><span class="u-hide">You can read this post in </span><?php the_field('read_time'); ?></span><?php endif; ?>
-											<a href="<?php the_field('url'); ?>" target="_blank" class="o-post__overlay-link" title="<?php the_title(); ?>"></a>
+											<?php if (get_the_post_thumbnail_url(get_the_ID(), 'featured--medium')) : ?>
+												<img class="o-post__image" 
+													     alt="<?php the_title(); ?>" 
+													     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+													     data-src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'featured--medium'); ?>">
+											<?php endif; ?>
+
+
+											<h3 class="o-post__title">
+												<a href="<?php the_field('url'); ?>" target="_blank" class="o-post__title-link">
+													<?php the_title(); ?>
+												</a>
+											</h3>
+
+
+											<div class="o-post__excerpt">
+												<?php the_excerpt(); ?>
+											</div><!-- /.o-post__excerpt -->
+
+
+											<div class="o-post__foot">
+												<?php if (get_field('website_name')) : ?><span class="o-post__from"><?php the_field('website_name'); ?></span><?php endif; ?>
+												<?php if (get_field('read_time'))    : ?><span class="o-post__read-time"><span class="u-hide">You can read this post in </span><?php the_field('read_time'); ?></span><?php endif; ?>
+											</div><!-- /.o-post__foot -->
 										</div>
 									</article>
 								</li>
