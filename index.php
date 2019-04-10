@@ -47,7 +47,48 @@
 
 
 
-		
+		<?php
+
+		/**
+		 * Get latest articles
+		 */
+
+		$recent_args = array(
+			'post_type'			=> 'resources',
+			'posts_per_page'	=> 4,
+			'tax_query'			=> 	array(
+										array(
+											'taxonomy' => 'resource__types',
+											'field'    => 'slug',
+											'terms'    => 'documented',
+										),
+									),
+		);
+
+
+		$recent_articles = new WP_Query($recent_args);
+		if ($recent_articles->have_posts()) : ?>
+
+
+			<section class="c-collection  c-collection--articles">
+				<div class="o-container">
+					<header class="c-collection__header">
+						<h2 class="c-collection__title">Recent articles</h2>
+					</header>
+
+
+					<div class="c-collection__posts">
+						<div class="o-grid">
+							<?php while ($recent_articles->have_posts()) : $recent_articles->the_post(); ?>
+								<div class="o-grid__item  u-one-half  u-palm--one-whole">
+									<?php get_template_part('template-partials/article-listing-item'); ?>
+								</div><!-- /.o-grid__item -->
+							<?php endwhile; ?>
+						</div><!-- /.o-grid -->
+					</div><!-- /.c-collection__posts -->
+				</div><!-- /.o-container -->
+			</section>
+		<?php endif; ?>
 	</main><!-- /.o-panel -->
 
 
