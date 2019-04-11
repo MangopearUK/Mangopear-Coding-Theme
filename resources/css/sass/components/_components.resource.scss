@@ -48,6 +48,10 @@
 			&:hover, &:active, &:focus, &:focus-within { color: $grey--dark; }
 		}
     }
+
+
+    + .c-collection--resources {
+    	border-top: 0;
     }
 }
 
