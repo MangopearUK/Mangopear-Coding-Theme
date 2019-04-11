@@ -102,9 +102,15 @@
 			 * @since 2.0.0
 			 *
 			 * [a]	Accessibility resources
+			 * [b]	CSS resources
+			 * [c]	Design resources
+			 * [d]	WordPress resources
 			 */
 			
 			coding_output_resources_row(array('term_id' => 31));		// [a]
+			coding_output_resources_row(array('term_id' => 4));			// [b]
+			coding_output_resources_row(array('term_id' => 16));		// [c]
+			coding_output_resources_row(array('term_id' => 12));		// [d]
 
 		?>
 	</main><!-- /.o-panel -->
