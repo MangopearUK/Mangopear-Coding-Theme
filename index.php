@@ -96,63 +96,17 @@
 
 		<?php
 
-		/**
-		 * Get latest articles
-		 */
+			/**
+			 * Output useful resources rows
+			 *
+			 * @since 2.0.0
+			 *
+			 * [a]	Accessibility resources
+			 */
+			
+			coding_output_resources_row(array('term_id' => 31));		// [a]
 
-		$links_args = array(
-			'post_type'			=> 'resources',
-			'posts_per_page'	=> 9,
-			'tax_query'			=> 	array(
-										array(
-											'taxonomy' => 'resource__types',
-											'field'    => 'term_id',
-											'terms'    => 5,
-										),
-									 ),
-		);
-
-
-		$links_posts = new WP_Query($links_args);
-		if ($links_posts->have_posts()) : ?>
-
-
-			<section class="c-collection  c-collection--resources">
-				<div class="o-container">
-					<header class="c-collection__header">
-						<h2 class="c-collection__title">Useful resources</h2>
-					</header>
-
-
-					<div class="c-collection__posts">
-						<div class="o-grid  o-grid--narrow">
-							<?php while ($links_posts->have_posts()) : $links_posts->the_post(); ?>
-								<div class="o-grid__item  u-one-third  u-lap--one-half  u-palm--one-whole">
-									<article class="c-resource">
-										<header class="c-resource__header">
-											<h3 class="c-resource__title"><a href="<?php the_field('url'); ?>" target="_blank"><?php the_title(); ?>&nbsp;&raquo;</a></h3>
-										</header>
-
-
-										<div class="c-resource__content">
-											<?php the_excerpt(); ?>
-										</div>
-
-
-										<div class="c-resource__action">
-											<a href="<?php the_field('url'); ?>" class="o-button  o-button--secondary  c-resource__link" target="_blank">
-												<span class="o-button__text">Read more</span>
-												<svg class="o-button__icon  o-button__icon--right" height="22" width="22" role="presentation"><use xlink:href="<?php echo MANGOPEAR_SPRITE; ?>#arrow--right"/></svg>
-											</a>
-										</div>
-									</article>
-								</div><!-- /.o-grid__item -->
-							<?php endwhile; ?>
-						</div><!-- /.o-grid -->
-					</div><!-- /.c-collection__posts -->
-				</div><!-- /.o-container -->
-			</section>
-		<?php endif; ?>
+		?>
 	</main><!-- /.o-panel -->
 
 
