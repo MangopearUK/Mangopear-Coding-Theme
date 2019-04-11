@@ -1,0 +1,87 @@
+/**
+ * [Component] Resource link pod
+ *
+ * @package     coding
+ * @category    styles
+ * @version     2.0.0
+ * @since       2.0.0
+ * @author      Andi North <andi@mangopear.co.uk>
+ * @link        https://mangopear.co.uk/
+ * @license     GNU General Public License <http://opensource.org/licenses/gpl-license.php>
+ */
+
+
+/**
+ * CHANGELOG
+ *
+ * @version 2.0.0
+ *          Init file
+ */
+
+
+/**
+ * CONTENTS
+ *
+ * [1]  Wrapper
+ */
+
+
+/**
+ * [1]  Wrapper
+ *
+ *      @since 2.0.0
+ */
+
+.c-collection--resources {
+    background: $green;
+    border-top: 4px solid $green;
+    border-bottom: 4px solid $green;
+    background: linear-gradient(45deg, $lime 15%, $green 100%);
+    @include rempx(margin, 0 -12px);
+    @include rempx(padding, 0 12px 12px);
+
+
+    .c-collection__title {
+    	color: #FFF;
+
+		a {
+			color: #FFF;
+			&:hover, &:active, &:focus, &:focus-within { color: $grey--dark; }
+		}
+    }
+
+
+    + .c-collection--resources {
+    	border-top: 0;
+    }
+}
+
+
+
+
+
+	/**
+	 * [2]  Resource pod
+	 */
+
+	.c-resource {
+	    background: #FFF;
+	    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+	    @include rempx(padding, 20px);
+	    @include rempx(margin, 0 0 12px);
+	    @include rempx(border-radius, 3px);
+	}
+
+
+		.c-resource__title {
+		    font-weight: bold;
+   			@include rempx(margin, 8px 0 0);
+		}
+
+
+		.c-resource__content {
+			p {
+				margin: 1em 0;
+				line-height: 1.6;
+			}
+		}

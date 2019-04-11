@@ -34,3 +34,17 @@
 		wp_enqueue_script('mangopear__parent--scripts', get_template_directory_uri() . '/resources/js/compiled/global.min.js', array('jquery')); 	// [b]
 		wp_enqueue_style( 'mangopear__parent--styles',  get_template_directory_uri() . '/resources/css/compiled/screen.css'); 						// [c]
 	}
+
+
+
+
+
+	/**
+	 * [2]	Include our other functions
+	 *
+	 * 		@since 2.0.0
+	 *
+	 * 		[a]	Output resource rows
+	 */
+	
+	include_once('includes/output-resources-row.php');				// [a]

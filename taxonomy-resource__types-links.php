@@ -15,119 +15,50 @@
 	
 
 	get_header();
-
-
-	/**
-	 * Output page title
-	 *
-	 * @see /themes/mangopear/functions/source/mangopear/mangopear.output.page-title.php
-	 */
-	
-	mangopear_output_page_title($show_title = true, $show_breadcrumb = false, $title_content = 'All useful links');
 	
 ?>
 
 
 	<main id="main">
+		<header class="c-title  c-title--short">
+			<div class="o-container">
+				<h1 class="c-title__title">
+					<span class="h6  c-title__sub-title">Collection</span><span class="u-hide"> - </span>
+					<strong>Useful resources</strong>
+				</h1>
+			</div><!-- /.o-container -->
+		</header>
+
+
+
+
+
+		<?php get_template_part('template-partials/footer-additions'); ?>
+
+
+
+
+
 		<?php if (have_posts()) : ?>
-			<section class="c-resources-row  c-resources-row--links">
+			<section class="u-clearfix  c-collection  c-collection--resources">
 				<div class="o-container">
-					<header class="c-resources-row__header">
-						<h2 class="c-resources-row__title">Useful links</h2>
+					<header class="c-collection__header">
+						<h2 class="c-collection__title">All useful resources</h2>
 					</header>
 
 
-					<div class="c-resources__links  o-posts  o-posts--title-only">
-						<ul class="o-flex  o-posts__list">
+					<div class="c-collection__posts">
+						<div class="o-grid  o-grid--narrow">
 							<?php while (have_posts()) : the_post(); ?>
-								<li class="o-flex__item  c-useful-link" <?php if (get_field('colour')) { echo 'style="color: ' . get_field('colour') . '"'; } ?>>
-									<article class="o-posts__item  c-useful-link__wrap  has-overlay-link">
-										<div class="o-post">
-											<?php if (get_the_post_thumbnail_url(get_the_ID(), 'featured--medium')) : ?>
-												<img class="o-post__image" 
-													     alt="<?php the_title(); ?>" 
-													     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
-													     data-src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'featured--medium'); ?>">
-											<?php endif; ?>
-
-
-											<h3 class="o-post__title">
-												<a href="<?php the_field('url'); ?>" target="_blank" class="o-post__title-link">
-													<?php the_title(); ?>
-												</a>
-											</h3>
-
-
-											<div class="o-post__excerpt">
-												<?php the_excerpt(); ?>
-											</div><!-- /.o-post__excerpt -->
-
-
-											<div class="o-post__foot">
-												<?php if (get_field('website_name')) : ?><span class="o-post__from"><?php the_field('website_name'); ?></span><?php endif; ?>
-												<?php if (get_field('read_time'))    : ?><span class="o-post__read-time"><span class="u-hide">You can read this post in </span><?php the_field('read_time'); ?></span><?php endif; ?>
-											</div><!-- /.o-post__foot -->
-										</div>
-									</article>
-								</li>
+								<div class="o-grid__item  u-one-third  u-lap--one-half  u-palm--one-whole">
+									<?php get_template_part('template-partials/useful-resource-article'); ?>
+								</div><!-- /.o-grid__item -->
 							<?php endwhile; ?>
-						</ul>
-
-
-						<?php get_template_part('template-partials/pagination'); ?>
-					</div><!-- /.c-resources__links -->
+						</div><!-- /.o-grid -->
+					</div><!-- /.c-collection__posts -->
 				</div><!-- /.o-container -->
 			</section>
 		<?php endif; ?>
-
-
-
-
-
-		<section class="c-resources-row  c-resources-row--collections">
-			<div class="o-container">
-				<header class="c-resources-row__header">
-					<h2 class="c-resources-row__title">Collections</h2>
-				</header>
-
-
-				<nav class="o-nav  o-nav--row  o-nav--collections">
-					<h3 class="o-nav__title"><span class="o-nav__title-overflow">Development:</span></h3>
-					<ul class="o-nav__list">
-						<li class="o-nav__item"><a href="/resource/collections/css/" class="o-nav__link"><span class="o-nav__text"><abbr title="Cascading stylesheets">CSS</abbr></span></a></li>
-						<li class="o-nav__item"><a href="/resource/collections/css/" class="o-nav__link"><span class="o-nav__text"><abbr title="Object orientated cascading stylesheets">OOCSS</abbr></span></a></li>
-						<li class="o-nav__item"><a href="/resource/collections/bem/" class="o-nav__link"><span class="o-nav__text"><abbr title="Block element modifier">BEM</abbr></span></a></li>
-						<li class="o-nav__item"><a href="/resource/collections/bemit/" class="o-nav__link"><span class="o-nav__text"><abbr title="Block element modifier inverted triangle">BEMIT</abbr></span></a></li>
-						<li class="o-nav__item"><a href="/resource/collections/html5/" class="o-nav__link"><span class="o-nav__text"><abbr title="Hypertext markup language version 5">HTML5</abbr></span></a></li>
-						<li class="o-nav__item"><a href="/resource/collections/js/" class="o-nav__link"><span class="o-nav__text"><abbr title="Javascript">JS</abbr></span></a></li>
-						<li class="o-nav__item"><a href="/resource/collections/js-components/" class="o-nav__link"><span class="o-nav__text"><abbr title="Javascript">JS</abbr> components</span></a></li>
-						<li class="o-nav__item"><a href="/resource/collections/woocommerce/" class="o-nav__link"><span class="o-nav__text">WooCommerce</span></a></li>
-						<li class="o-nav__item"><a href="/resource/collections/wordpress/" class="o-nav__link"><span class="o-nav__text">WordPress</span></a></li>
-					</ul>
-				</nav>
-
-
-				<nav class="o-nav  o-nav--row  o-nav--collections">
-					<h3 class="o-nav__title"><span class="o-nav__title-overflow">Best practices:</span></h3>
-					<ul class="o-nav__list">
-						<li class="o-nav__item"><a href="/resource/collections/accessibility/" class="o-nav__link"><span class="o-nav__text">Accessibility</span></a></li>
-						<li class="o-nav__item"><a href="/resource/collections/performance/" class="o-nav__link"><span class="o-nav__text">Performance</span></a></li>
-						<li class="o-nav__item"><a href="/resource/collections/responsive/" class="o-nav__link"><span class="o-nav__text">Responsive</span></a></li>
-						<li class="o-nav__item"><a href="/resource/collections/standard-conventions/" class="o-nav__link"><span class="o-nav__text">Standards</span></a></li>
-					</ul>
-				</nav>
-
-
-				<nav class="o-nav  o-nav--row  o-nav--collections">
-					<h3 class="o-nav__title"><span class="o-nav__title-overflow">Content strategy:</span></h3>
-					<ul class="o-nav__list">
-						<li class="o-nav__item"><a href="/resource/collections/content/" class="o-nav__link"><span class="o-nav__text">Content strategy</span></a></li>
-						<li class="o-nav__item"><a href="/resource/collections/testing/" class="o-nav__link"><span class="o-nav__text">Testing</span></a></li>
-						<li class="o-nav__item"><a href="/resource/collections/user-experience/" class="o-nav__link"><span class="o-nav__text">User experience</span></a></li>
-					</ul>
-				</nav>
-			</div><!-- /.o-container -->
-		</section>
 	</main><!-- /.o-panel -->
 
 
