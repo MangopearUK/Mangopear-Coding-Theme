@@ -73,7 +73,7 @@
 			<section class="c-collection  c-collection--articles">
 				<div class="o-container">
 					<header class="c-collection__header">
-						<h2 class="c-collection__title">Recent articles</h2>
+						<h2 class="c-collection__title"><a href="/resource/type/documented/">Recent articles&nbsp;&raquo;</a></h2>
 					</header>
 
 
