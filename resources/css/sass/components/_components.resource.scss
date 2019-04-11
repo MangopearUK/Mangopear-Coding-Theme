@@ -66,3 +66,11 @@
 		    font-weight: bold;
    			@include rempx(margin, 8px 0 0);
 		}
+
+
+		.c-resource__content {
+			p {
+				margin: 1em 0;
+				line-height: 1.6;
+			}
+		}
