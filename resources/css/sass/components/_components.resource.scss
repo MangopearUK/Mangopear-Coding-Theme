@@ -42,6 +42,12 @@
 
     .c-collection__title {
     	color: #FFF;
+
+		a {
+			color: #FFF;
+			&:hover, &:active, &:focus, &:focus-within { color: $grey--dark; }
+		}
+    }
     }
 }
 
